@@ -16,7 +16,7 @@ def tmproxy(api_key,same_ip=False,time_change=10,type_proxy='https'):
         api = f'https://tmproxy.com/api/proxy/get-current-proxy'
         playload = {"api_key":api_key}
         response = ss.post(url=api , json=playload).json()
-        if response['code'] != 0:
+        if response['code'] != 0 and response['code'] != 27:
             print(f'{api_key} => ERROR: {response}')
             return 'error api key' , 0
         else:
